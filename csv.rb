@@ -8,16 +8,16 @@ memo_type = gets.to_i
     
   puts "拡張子を除いたファイルを入力してください"
   
-  file_1 = gets.chomp
+  file = gets.chomp
   
   puts "メモしたい内容を記入してください"
   puts "終了後、Ctrl + D　を押します。"
   
   input = STDIN.read
   
-  CSV.open("#{file_1}.csv", "w") do |csv|
+  CSV.open("#{file}.csv", "w") do |csv|
       
-    csv << [input]
+    csv << ["#{input}"]
     puts "入力内容　#{input}"
   end
   
@@ -26,16 +26,17 @@ memo_type = gets.to_i
     
   puts "拡張子を除いた既存ファイルを入力してください"
   
-  file_2 = gets.chomp
+  file = gets.chomp
+  p file
   
   puts "メモしたい内容を記入してください"
   puts "終了後、Ctrl + D　を押します。"
   
   input = STDIN.read
   
-  CSV.open("#{file_2}.csv", "a") do |csv|
-　    
-    csv << [input]
+  CSV.open("#{file}.csv", "a") do |csv|
+    
+    csv << ["#{input}"]
     puts "入力内容　#{input}"
   end
  
